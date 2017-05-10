@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Boilerplate: Knex.js
 
 Phase 1 boilerplate project with:
@@ -22,3 +23,7 @@ npm run dev
 ```
 
 Be sure to check out the other npm scripts too.
+=======
+# Vege-Trader
+Swap your home grown produce with your neighbours. 
+>>>>>>> 58eff66e313819655c05d1840d7a7524435763ac
