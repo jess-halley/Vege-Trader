@@ -35,7 +35,9 @@ MVP:
 User story:
 
 "As a user I want to be able to create a profile that lists produce I'm willing to trade."
+
 "I then want to be able to go to a different page and see a list of all of the produce my neigbours are willing to trade"
+
 "I want to be able to click on some produce and send a message to the traders."
 
 Dev plan:
@@ -46,4 +48,4 @@ Focus on one user story at a time.
 
 2) Establish routes, and write some tests for these.
 
-3) Work on database code and write tests for these. 
+3) Work on database code and write tests for these.
