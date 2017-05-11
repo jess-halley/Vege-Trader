@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>EDA Phase 1 Express Boilerplate</title>
-  </head>
-  <body>
-    <ul>
-    {{#each users}}
-      <li>{{name}} ({{email}})</li>
-    {{/each}}
-    </ul>
-  </body>
+<head>
+  <title>Vege Trader</title>
+</head>
+<body>
+  <form action='/users' method='post'>
+    <div>
+      <label for='name'>Name</label>
+      <input type='text' name='name' placeholder='Name here'/>
+    </div>
+    <div>
+      <label for='name'>Email</label>
+      <input type='email' name='email' />
+    </div>
+    <div>
+      <label for='name'>Veges for trade</label>
+      <select name="Veges">
+        <option value="Spinach">Spinach</option>
+        <option value="Tomatoe">Tomatoe</option>
+        <option value="Chilli">Chilli</option>
+        <option value="Onion">Onion</option>
+      </select>
+    </div>
+    <div>
+      <input type='submit' value='Save' />
+    </div>
+  </form>
+</body>
 </html>
