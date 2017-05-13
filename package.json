@@ -1,40 +1,41 @@
+
 {
-  "name": "boilerplate-knex",
-  "version": "0.1.2",
-  "description": "Express boilerplate with Knex.js",
+  "name": "Vege-Trader",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "knex": "knex",
     "dev": "nodemon index",
-    "start": "node",
-    "debug": "nodemon",
-    "test": "ava"
+    "debug": "node --inspect --debug-brk index",
+    "test": "ava 'tests/**/*.test.js'",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dev-academy-challenges/boilerplate-knex.git"
+    "url": "git+https://github.com/jess-halley/Vege-Trader.git"
   },
   "keywords": [
-    "eda",
-    "boilerplate"
+    "knex",
+    "joins"
   ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dev-academy-challenges/boilerplate-knex/issues"
+    "url": "https://github.com/jess-halley/Vege-Trader/issues"
   },
-  "homepage": "https://github.com/dev-academy-challenges/boilerplate-knex#readme",
-  "devDependencies": {
-    "ava": "^0.18.0",
-    "cheerio": "^0.22.0",
-    "nodemon": "^1.11.0",
-    "sqlite3": "^3.1.8",
-    "supertest": "^3.0.0"
-  },
+  "homepage": "https://github.com/jess-halley/Vege-Trader#readme",
   "dependencies": {
-    "body-parser": "^1.16.0",
-    "express": "^4.14.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
-    "knex": "^0.12.6"
+    "knex": "^0.11.10",
+    "pg": "^6.1.5",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }
