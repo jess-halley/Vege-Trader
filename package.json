@@ -15,6 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/jess-halley/Vege-Trader.git"
   },
+
+  "engines": {
+    "node": "7.10.0"
+  }
+
   "keywords": [
     "knex",
     "joins"
