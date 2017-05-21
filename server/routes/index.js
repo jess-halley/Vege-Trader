@@ -14,6 +14,12 @@ router.get('/', function (req, res) {
 })
 
 router.get('/react', (req, res) => {
-  res.render('react')
+  db.getUsers(req.app.get('connection'))
+    .then(function (users) {
+      res.render('react', {users: JSON.stringify(users)})
+    })
+    .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
 })
 module.exports = router
