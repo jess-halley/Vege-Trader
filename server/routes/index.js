@@ -13,4 +13,7 @@ router.get('/', function (req, res) {
     })
 })
 
+router.get('/react', (req, res) => {
+  res.render('react')
+})
 module.exports = router
