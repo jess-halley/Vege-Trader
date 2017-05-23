@@ -10,7 +10,7 @@
     "debug": "node --inspect --debug-brk server/index.js",
     "test": "ava"
   },
-  
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dev-academy-challenges/boilerplate-knex.git"
@@ -31,6 +31,7 @@
     "babel-core": "^5.8.38",
     "babel-loader": "^5.4.2",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0":"^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "cheerio": "^0.22.0",

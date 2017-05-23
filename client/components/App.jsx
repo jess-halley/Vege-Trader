@@ -3,16 +3,24 @@ import React from 'react'
 class App extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      users: props.users
+    }
   }
-  saveUser(user)
+
+  saveUser(user){
+    let users = this.state.users
+    users.push(user)
+    this.setState({users})
+  }
 
   render(){
-  return (
-    <div>
-      <UserForm saveUser={this.saveUser}/>
-      {this.props.users.map((u, i) => <User user={u} key={i}/>)}
-    </div>
-  )
+    return (
+      <div>
+        <UserForm saveUser={this.saveUser.bind(this)}/>
+        {this.state.users.map((u, i) => <User user={u} key={i}/>)}
+      </div>
+    )
   }
 }
 
@@ -42,7 +50,7 @@ class UserForm extends React.Component {
   }
 
   handleChange(evt){
-    let user = this.state.user
+    let user = {...this.state.user}
     user[evt.target.name] = evt.target.value
     this.setState({user})
   }

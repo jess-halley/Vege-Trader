@@ -9515,10 +9515,133 @@ module.exports = getIteratorFn;
 
 /***/ }),
 /* 81 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: /home/jessica/workspace/vege-trader/client/components/App.jsx: Unexpected token (9:2)\n\u001b[0m  saveUser\u001b[34m\u001b[1m(\u001b[22m\u001b[39muser\u001b[34m\u001b[1m)\u001b[22m\u001b[39m\n\n  render\u001b[34m\u001b[1m(\u001b[22m\u001b[39m\u001b[34m\u001b[1m)\u001b[22m\u001b[39m\u001b[32m{\u001b[39m\n  \u001b[36mreturn\u001b[39m \u001b[34m\u001b[1m(\u001b[22m\u001b[39m\n    \u001b[1m<\u001b[22mdiv\u001b[1m>\u001b[22m\n      \u001b[1m<\u001b[22mUserForm saveUser\u001b[1m=\u001b[22m\u001b[32m{\u001b[39m\u001b[36mthis\u001b[39m\u001b[1m.\u001b[22msaveUser\u001b[32m}\u001b[39m\u001b[1m/\u001b[22m\u001b[1m>\u001b[22m\u001b[0m\n    at Parser.pp.raise (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/location.js:24:13)\n    at Parser.pp.unexpected (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/util.js:82:8)\n    at Parser.pp.expect (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/util.js:76:33)\n    at Parser.pp.parseBlock (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:440:8)\n    at Parser.pp.parseFunctionBody (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/expression.js:747:22)\n    at Parser.parseFunctionBody (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/plugins/flow.js:643:20)\n    at Parser.pp.parseMethod (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/expression.js:717:8)\n    at Parser.parseClassMethod (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/plugins/flow.js:852:27)\n    at Parser.pp.parseClass (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:596:10)\n    at Parser.pp.parseStatement (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:84:19)\n    at Parser.parseStatement (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/plugins/flow.js:655:22)\n    at Parser.pp.parseTopLevel (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:30:21)\n    at Parser.parse (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/index.js:70:17)\n    at Object.parse (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/index.js:45:50)\n    at Object.exports.default (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/helpers/parse.js:36:18)\n    at File.parse (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/file/index.js:574:40)\n    at File.parseCode (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/file/index.js:691:20)\n    at /home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/pipeline.js:167:12\n    at File.wrap (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/file/index.js:639:16)\n    at Pipeline.transform (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/pipeline.js:165:17)\n    at transpile (/home/jessica/workspace/vege-trader/node_modules/babel-loader/index.js:12:22)\n    at Object.module.exports (/home/jessica/workspace/vege-trader/node_modules/babel-loader/index.js:71:12)");
+
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = __webpack_require__(50);
+
+var _react2 = _interopRequireDefault(_react);
+
+var App = (function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    _classCallCheck(this, App);
+
+    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      users: props.users
+    };
+  }
+
+  _createClass(App, [{
+    key: 'saveUser',
+    value: function saveUser(user) {
+      var users = this.state.users;
+      users.push(user);
+      this.setState({ users: users });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement(UserForm, { saveUser: this.saveUser.bind(this) }),
+        this.state.users.map(function (u, i) {
+          return _react2['default'].createElement(User, { user: u, key: i });
+        })
+      );
+    }
+  }]);
+
+  return App;
+})(_react2['default'].Component);
+
+var User = function User(_ref) {
+  var user = _ref.user;
+
+  return _react2['default'].createElement(
+    'div',
+    { className: 'user' },
+    user.name,
+    ' : ',
+    user.email
+  );
+};
+
+var UserForm = (function (_React$Component2) {
+  _inherits(UserForm, _React$Component2);
+
+  function UserForm(props) {
+    _classCallCheck(this, UserForm);
+
+    _get(Object.getPrototypeOf(UserForm.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      user: {
+        name: '',
+        email: ''
+      }
+    };
+  }
+
+  _createClass(UserForm, [{
+    key: 'handleSubmit',
+    value: function handleSubmit(evt) {
+      evt.preventDefault();
+      this.props.saveUser(this.state.user);
+    }
+  }, {
+    key: 'handleChange',
+    value: function handleChange(evt) {
+      var user = _extends({}, this.state.user);
+      user[evt.target.name] = evt.target.value;
+      this.setState({ user: user });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this = this;
+
+      return _react2['default'].createElement(
+        'form',
+        { onSubmit: function (evt) {
+            return _this.handleSubmit(evt);
+          } },
+        _react2['default'].createElement('input', { type: 'text', name: 'name', placeholder: 'name', onChange: function (evt) {
+            return _this.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'email', name: 'email', placeholder: 'email', onChange: function (evt) {
+            return _this.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'submit', value: 'Save' })
+      );
+    }
+  }]);
+
+  return UserForm;
+})(_react2['default'].Component);
+
+exports['default'] = App;
+module.exports = exports['default'];
 
 /***/ }),
 /* 82 */
