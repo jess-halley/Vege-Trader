@@ -9515,50 +9515,10 @@ module.exports = getIteratorFn;
 
 /***/ }),
 /* 81 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _react = __webpack_require__(50);
-
-var _react2 = _interopRequireDefault(_react);
-
-var App = function App(prop) {
-  return _react2['default'].createElement(
-    'div',
-    null,
-    _react2['default'].createElement(
-      'div',
-      null,
-      'Hello World'
-    ),
-    prop.users.map(function (u, i) {
-      return _react2['default'].createElement(User, { user: u, key: i });
-    })
-  );
-};
-
-var User = function User(_ref) {
-  var user = _ref.user;
-
-  return _react2['default'].createElement(
-    'div',
-    { className: 'user' },
-    user.name,
-    ' : ',
-    user.email
-  );
-};
-
-exports['default'] = App;
-module.exports = exports['default'];
+throw new Error("Module build failed: SyntaxError: /home/jessica/workspace/vege-trader/client/components/App.jsx: Unexpected token (9:2)\n\u001b[0m  saveUser\u001b[34m\u001b[1m(\u001b[22m\u001b[39muser\u001b[34m\u001b[1m)\u001b[22m\u001b[39m\n\n  render\u001b[34m\u001b[1m(\u001b[22m\u001b[39m\u001b[34m\u001b[1m)\u001b[22m\u001b[39m\u001b[32m{\u001b[39m\n  \u001b[36mreturn\u001b[39m \u001b[34m\u001b[1m(\u001b[22m\u001b[39m\n    \u001b[1m<\u001b[22mdiv\u001b[1m>\u001b[22m\n      \u001b[1m<\u001b[22mUserForm saveUser\u001b[1m=\u001b[22m\u001b[32m{\u001b[39m\u001b[36mthis\u001b[39m\u001b[1m.\u001b[22msaveUser\u001b[32m}\u001b[39m\u001b[1m/\u001b[22m\u001b[1m>\u001b[22m\u001b[0m\n    at Parser.pp.raise (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/location.js:24:13)\n    at Parser.pp.unexpected (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/util.js:82:8)\n    at Parser.pp.expect (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/util.js:76:33)\n    at Parser.pp.parseBlock (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:440:8)\n    at Parser.pp.parseFunctionBody (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/expression.js:747:22)\n    at Parser.parseFunctionBody (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/plugins/flow.js:643:20)\n    at Parser.pp.parseMethod (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/expression.js:717:8)\n    at Parser.parseClassMethod (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/plugins/flow.js:852:27)\n    at Parser.pp.parseClass (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:596:10)\n    at Parser.pp.parseStatement (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:84:19)\n    at Parser.parseStatement (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/plugins/flow.js:655:22)\n    at Parser.pp.parseTopLevel (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/statement.js:30:21)\n    at Parser.parse (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/parser/index.js:70:17)\n    at Object.parse (/home/jessica/workspace/vege-trader/node_modules/babel-core/node_modules/babylon/lib/index.js:45:50)\n    at Object.exports.default (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/helpers/parse.js:36:18)\n    at File.parse (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/file/index.js:574:40)\n    at File.parseCode (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/file/index.js:691:20)\n    at /home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/pipeline.js:167:12\n    at File.wrap (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/file/index.js:639:16)\n    at Pipeline.transform (/home/jessica/workspace/vege-trader/node_modules/babel-core/lib/transformation/pipeline.js:165:17)\n    at transpile (/home/jessica/workspace/vege-trader/node_modules/babel-loader/index.js:12:22)\n    at Object.module.exports (/home/jessica/workspace/vege-trader/node_modules/babel-loader/index.js:71:12)");
 
 /***/ }),
 /* 82 */
