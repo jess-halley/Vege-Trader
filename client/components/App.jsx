@@ -20,7 +20,6 @@ class App extends React.Component {
   saveUser(user){
     api.saveUser(user, (user_id) => {
       user.id = user_id
-      this.refreshList
     })
 
     // this.setState({users})

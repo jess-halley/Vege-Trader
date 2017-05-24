@@ -9590,11 +9590,8 @@ var App = (function (_React$Component) {
   }, {
     key: 'saveUser',
     value: function saveUser(user) {
-      var _this2 = this;
-
       api.saveUser(user, function (user_id) {
         user.id = user_id;
-        _this2.refreshList;
       });
 
       // this.setState({users})
@@ -9671,27 +9668,27 @@ var UserForm = (function (_React$Component2) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return _react2['default'].createElement(
         'form',
         { onSubmit: function (evt) {
-            return _this3.handleSubmit(evt);
+            return _this2.handleSubmit(evt);
           } },
         _react2['default'].createElement('input', { type: 'text', name: 'name', placeholder: 'name', onChange: function (evt) {
-            return _this3.handleChange(evt);
+            return _this2.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'email', name: 'email', placeholder: 'email', onChange: function (evt) {
-            return _this3.handleChange(evt);
+            return _this2.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'text', name: 'vegetables', placeholder: 'veges for trading', onChange: function (evt) {
-            return _this3.handleChange(evt);
+            return _this2.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'text', name: 'quantity', placeholder: 'how many?', onChange: function (evt) {
-            return _this3.handleChange(evt);
+            return _this2.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'url', name: 'imgURL', placeholder: 'post a photo', onChange: function (evt) {
-            return _this3.handleChange(evt);
+            return _this2.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'submit', value: 'Save' })
       );
