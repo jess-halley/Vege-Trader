@@ -1,4 +1,5 @@
 import React from 'react'
+const api = require('../api')
 
 class App extends React.Component {
   constructor(props){
@@ -9,6 +10,9 @@ class App extends React.Component {
   }
 
   saveUser(user){
+    api.saveUser(user, (user_id) => {
+      user.id = user_id
+    })
     let users = this.state.users
     users.push(user)
     this.setState({users})

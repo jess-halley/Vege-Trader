@@ -5,6 +5,7 @@ exports.up = function (knex, Promise) {
     table.string('email')
     table.string('vegetables')
     table.string('quantity')
+    table.string('imgURL')
   })
 }
 
