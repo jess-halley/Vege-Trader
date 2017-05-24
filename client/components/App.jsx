@@ -5,17 +5,25 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      users: props.users
+      users: []
     }
+  }
+
+  componentDidMount () {
+    this.refreshList
+  }
+
+  refreshList () {
+    api.getUser((err, users) => this.setState(err, users))
   }
 
   saveUser(user){
     api.saveUser(user, (user_id) => {
       user.id = user_id
+      this.refreshList
     })
-    let users = this.state.users
-    users.push(user)
-    this.setState({users})
+
+    // this.setState({users})
   }
 
   render(){
@@ -44,13 +52,25 @@ class UserForm extends React.Component {
   this.state = {
     user: {
       name: '',
-      email: ''
+      email: '',
+      vegetables:'',
+      quantity:'',
+      imgURL:''
     }
   }
-  }
+}
   handleSubmit(evt){
     evt.preventDefault()
     this.props.saveUser(this.state.user);
+    this.setState = {
+      user: {
+        name: '',
+        email: '',
+        vegetables:'',
+        quantity:'',
+        imgURL:''
+      }
+    }
   }
 
   handleChange(evt){
@@ -65,6 +85,9 @@ class UserForm extends React.Component {
     <form onSubmit={(evt) => this.handleSubmit(evt)}>
       <input type='text' name='name' placeholder='name' onChange= {evt => this.handleChange(evt)}/>
       <input type='email' name='email' placeholder='email'onChange= {evt => this.handleChange(evt)}/>
+      <input type='text' name='vegetables' placeholder='veges for trading'onChange= {evt => this.handleChange(evt)}/>
+      <input type='text' name='quantity' placeholder='how many?'onChange= {evt => this.handleChange(evt)}/>
+      <input type='url' name='imgURL' placeholder='post a photo'onChange= {evt => this.handleChange(evt)}/>
       <input type='submit' value='Save'/>
     </form>
     )

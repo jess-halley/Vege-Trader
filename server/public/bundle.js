@@ -9569,19 +9569,35 @@ var App = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
     this.state = {
-      users: props.users
+      users: []
     };
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.refreshList;
+    }
+  }, {
+    key: 'refreshList',
+    value: function refreshList() {
+      var _this = this;
+
+      api.getUser(function (err, users) {
+        return _this.setState(err, users);
+      });
+    }
+  }, {
     key: 'saveUser',
     value: function saveUser(user) {
+      var _this2 = this;
+
       api.saveUser(user, function (user_id) {
         user.id = user_id;
+        _this2.refreshList;
       });
-      var users = this.state.users;
-      users.push(user);
-      this.setState({ users: users });
+
+      // this.setState({users})
     }
   }, {
     key: 'render',
@@ -9622,7 +9638,10 @@ var UserForm = (function (_React$Component2) {
     this.state = {
       user: {
         name: '',
-        email: ''
+        email: '',
+        vegetables: '',
+        quantity: '',
+        imgURL: ''
       }
     };
   }
@@ -9632,6 +9651,15 @@ var UserForm = (function (_React$Component2) {
     value: function handleSubmit(evt) {
       evt.preventDefault();
       this.props.saveUser(this.state.user);
+      this.setState = {
+        user: {
+          name: '',
+          email: '',
+          vegetables: '',
+          quantity: '',
+          imgURL: ''
+        }
+      };
     }
   }, {
     key: 'handleChange',
@@ -9643,18 +9671,27 @@ var UserForm = (function (_React$Component2) {
   }, {
     key: 'render',
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       return _react2['default'].createElement(
         'form',
         { onSubmit: function (evt) {
-            return _this.handleSubmit(evt);
+            return _this3.handleSubmit(evt);
           } },
         _react2['default'].createElement('input', { type: 'text', name: 'name', placeholder: 'name', onChange: function (evt) {
-            return _this.handleChange(evt);
+            return _this3.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'email', name: 'email', placeholder: 'email', onChange: function (evt) {
-            return _this.handleChange(evt);
+            return _this3.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'text', name: 'vegetables', placeholder: 'veges for trading', onChange: function (evt) {
+            return _this3.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'text', name: 'quantity', placeholder: 'how many?', onChange: function (evt) {
+            return _this3.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'url', name: 'imgURL', placeholder: 'post a photo', onChange: function (evt) {
+            return _this3.handleChange(evt);
           } }),
         _react2['default'].createElement('input', { type: 'submit', value: 'Save' })
       );
@@ -9693,7 +9730,8 @@ var _superagent2 = _interopRequireDefault(_superagent);
 var traderUrl = 'http://localhost:3000/react';
 
 module.exports = {
-  saveUser: saveUser
+  saveUser: saveUser,
+  getUser: getUser
 };
 
 function saveUser(user, callback) {
@@ -9702,6 +9740,16 @@ function saveUser(user, callback) {
       callback(err);
     } else {
       callback(null, res.body.user_id);
+    }
+  });
+}
+
+function getUser(callback) {
+  _superagent2['default'].get(traderUrl).end(function (err, res) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, res.body);
     }
   });
 }
@@ -9727,7 +9775,7 @@ var _componentsApp = __webpack_require__(82);
 
 var _componentsApp2 = _interopRequireDefault(_componentsApp);
 
-_reactDom2['default'].render(_react2['default'].createElement(_componentsApp2['default'], { users: window.users }), document.getElementById('app'));
+_reactDom2['default'].render(_react2['default'].createElement(_componentsApp2['default'], null), document.getElementById('app'));
 
 /***/ }),
 /* 86 */
