@@ -15,11 +15,22 @@ router.get('/', function (req, res) {
 
 router.get('/react', (req, res) => {
   db.getUsers(req.app.get('connection'))
-    .then(function (users) {
-      res.render('react', {users: JSON.stringify(users)})
-    })
-    .catch(function (err) {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
-    })
+  .then(function (users) {
+    res.render('react', {users: JSON.stringify(users)})
+  })
+  .catch(function (err) {
+    res.status(500).send('DATABASE ERROR: ' + err.message)
+  })
 })
+
+router.post('/react', (req, res) => {
+  db.addUser(req.body, req.app.get('connection'))
+  .then(function (response) {
+    res.status(201).send({user_id: response[0]})
+  })
+  .catch(function (err){
+    res.status(500).send('DATABASE ERROR: ' + err.message)
+  })
+})
+
 module.exports = router
