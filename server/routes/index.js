@@ -3,27 +3,30 @@ var router = express.Router()
 
 var db = require('../db')
 
-router.get('/', function (req, res) {
-  db.getUsers(req.app.get('connection'))
+router.get('/vegetables', function (req, res) {
+  console.log("hit");
+  db.getVegetables(req.app.get('connection'))
     .then(function (users) {
-      res.render('index', { users: users })
+      console.log({users});
+      res.json(users)
     })
     .catch(function (err) {
+      console.log(err);
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
 
-router.get('/react', (req, res) => {
+router.get('/users', (req, res) => {
   db.getUsers(req.app.get('connection'))
   .then(function (users) {
-    res.render('react', {users: JSON.stringify(users)})
+    res.json(users)
   })
   .catch(function (err) {
     res.status(500).send('DATABASE ERROR: ' + err.message)
   })
 })
 
-router.post('/react', (req, res) => {
+router.post('/user', (req, res) => {
   db.addUser(req.body, req.app.get('connection'))
   .then(function (response) {
     res.status(201).send({user_id: response[0]})

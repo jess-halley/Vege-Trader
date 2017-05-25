@@ -9543,8 +9543,6 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -9558,6 +9556,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
 var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _forms = __webpack_require__(192);
+
+var _forms2 = _interopRequireDefault(_forms);
 
 var api = __webpack_require__(84);
 
@@ -9576,15 +9578,15 @@ var App = (function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.refreshList;
+      this.refreshList();
     }
   }, {
     key: 'refreshList',
     value: function refreshList() {
       var _this = this;
 
-      api.getUser(function (err, users) {
-        return _this.setState(err, users);
+      api.getVegetables(function (err, users) {
+        _this.setState({ users: users });
       });
     }
   }, {
@@ -9593,8 +9595,6 @@ var App = (function (_React$Component) {
       api.saveUser(user, function (user_id) {
         user.id = user_id;
       });
-
-      // this.setState({users})
     }
   }, {
     key: 'render',
@@ -9602,7 +9602,7 @@ var App = (function (_React$Component) {
       return _react2['default'].createElement(
         'div',
         null,
-        _react2['default'].createElement(UserForm, { saveUser: this.saveUser.bind(this) }),
+        _react2['default'].createElement(_forms2['default'], { saveUser: this.saveUser.bind(this) }),
         this.state.users.map(function (u, i) {
           return _react2['default'].createElement(User, { user: u, key: i });
         })
@@ -9619,84 +9619,16 @@ var User = function User(_ref) {
   return _react2['default'].createElement(
     'div',
     { className: 'user' },
-    user.name,
-    ' : ',
-    user.email
+    _react2['default'].createElement(
+      'h1',
+      null,
+      user.name,
+      ' : ',
+      user.email
+    ),
+    _react2['default'].createElement('img', { src: user.imgURL })
   );
 };
-
-var UserForm = (function (_React$Component2) {
-  _inherits(UserForm, _React$Component2);
-
-  function UserForm(props) {
-    _classCallCheck(this, UserForm);
-
-    _get(Object.getPrototypeOf(UserForm.prototype), 'constructor', this).call(this, props);
-    this.state = {
-      user: {
-        name: '',
-        email: '',
-        vegetables: '',
-        quantity: '',
-        imgURL: ''
-      }
-    };
-  }
-
-  _createClass(UserForm, [{
-    key: 'handleSubmit',
-    value: function handleSubmit(evt) {
-      evt.preventDefault();
-      this.props.saveUser(this.state.user);
-      this.setState = {
-        user: {
-          name: '',
-          email: '',
-          vegetables: '',
-          quantity: '',
-          imgURL: ''
-        }
-      };
-    }
-  }, {
-    key: 'handleChange',
-    value: function handleChange(evt) {
-      var user = _extends({}, this.state.user);
-      user[evt.target.name] = evt.target.value;
-      this.setState({ user: user });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2['default'].createElement(
-        'form',
-        { onSubmit: function (evt) {
-            return _this2.handleSubmit(evt);
-          } },
-        _react2['default'].createElement('input', { type: 'text', name: 'name', placeholder: 'name', onChange: function (evt) {
-            return _this2.handleChange(evt);
-          } }),
-        _react2['default'].createElement('input', { type: 'email', name: 'email', placeholder: 'email', onChange: function (evt) {
-            return _this2.handleChange(evt);
-          } }),
-        _react2['default'].createElement('input', { type: 'text', name: 'vegetables', placeholder: 'veges for trading', onChange: function (evt) {
-            return _this2.handleChange(evt);
-          } }),
-        _react2['default'].createElement('input', { type: 'text', name: 'quantity', placeholder: 'how many?', onChange: function (evt) {
-            return _this2.handleChange(evt);
-          } }),
-        _react2['default'].createElement('input', { type: 'url', name: 'imgURL', placeholder: 'post a photo', onChange: function (evt) {
-            return _this2.handleChange(evt);
-          } }),
-        _react2['default'].createElement('input', { type: 'submit', value: 'Save' })
-      );
-    }
-  }]);
-
-  return UserForm;
-})(_react2['default'].Component);
 
 exports['default'] = App;
 module.exports = exports['default'];
@@ -9724,11 +9656,12 @@ var _superagent = __webpack_require__(186);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var traderUrl = 'http://localhost:3000/react';
+var traderUrl = 'http://localhost:3000/api';
 
 module.exports = {
   saveUser: saveUser,
-  getUser: getUser
+  getVegetables: getVegetables,
+  getUsers: getUsers
 };
 
 function saveUser(user, callback) {
@@ -9741,12 +9674,23 @@ function saveUser(user, callback) {
   });
 }
 
-function getUser(callback) {
-  _superagent2['default'].get(traderUrl).end(function (err, res) {
+function getVegetables(callback) {
+  _superagent2['default'].get(traderUrl + '/vegetables').end(function (err, res) {
     if (err) {
       callback(err);
     } else {
       callback(null, res.body);
+    }
+  });
+}
+
+function getUsers(callback) {
+  _superagent2['default'].get(traderUrl + '/users').end(function (err, res) {
+    console.log(res.body);
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, res.body || []);
     }
   });
 }
@@ -24227,6 +24171,140 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
   return header;
 };
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = __webpack_require__(51);
+
+var _react2 = _interopRequireDefault(_react);
+
+var api = __webpack_require__(84);
+
+var UserForm = (function (_React$Component) {
+  _inherits(UserForm, _React$Component);
+
+  function UserForm(props) {
+    _classCallCheck(this, UserForm);
+
+    _get(Object.getPrototypeOf(UserForm.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      user: {
+        name: '',
+        email: ''
+      },
+      users: []
+    };
+  }
+
+  _createClass(UserForm, [{
+    key: 'handleSubmit',
+    value: function handleSubmit(evt) {
+      evt.preventDefault();
+      this.props.saveUser(this.state.user);
+      this.setState = {
+        user: {
+          name: '',
+          email: ''
+        }
+      };
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this = this;
+
+      api.getUsers(function (err, users) {
+        _this.setState({ users: users });
+      });
+    }
+  }, {
+    key: 'handleChange',
+    value: function handleChange(evt) {
+      var user = _extends({}, this.state.user);
+      user[evt.target.name] = evt.target.value;
+      this.setState({ user: user });
+      console.log(this.state);
+    }
+  }, {
+    key: 'renderUserOptions',
+    value: function renderUserOptions() {
+      return this.state.users.map(function (user) {
+        return _react2['default'].createElement(
+          'option',
+          { value: user.id },
+          user.name
+        );
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2['default'].createElement(
+        'form',
+        { onSubmit: function (evt) {
+            return _this2.handleSubmit(evt);
+          } },
+        _react2['default'].createElement(
+          'select',
+          { name: 'user_id', onChange: function (e) {
+              return _this2.handleChange(e);
+            } },
+          _react2['default'].createElement(
+            'option',
+            { selected: true, disabled: true },
+            'Existing User'
+          ),
+          ' />',
+          this.renderUserOptions()
+        ),
+        _react2['default'].createElement('input', { type: 'text', name: 'name', placeholder: 'name', onChange: function (evt) {
+            return _this2.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'email', name: 'email', placeholder: 'email', onChange: function (evt) {
+            return _this2.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'text', name: 'vegetables', placeholder: 'veges for trading', onChange: function (evt) {
+            return _this2.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'text', name: 'quantity', placeholder: 'how many?', onChange: function (evt) {
+            return _this2.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'url', name: 'imgURL', placeholder: 'post a photo', onChange: function (evt) {
+            return _this2.handleChange(evt);
+          } }),
+        _react2['default'].createElement('input', { type: 'submit', value: 'Save' })
+      );
+    }
+  }]);
+
+  return UserForm;
+})(_react2['default'].Component);
+
+exports['default'] = UserForm;
+module.exports = exports['default'];
 
 /***/ })
 /******/ ]);

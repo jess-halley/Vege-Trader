@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'))
 
 // Routes
 
-app.use('/', index)
+app.use('/api', index)
 
 module.exports = (connection) => {
   app.set('connection', connection)

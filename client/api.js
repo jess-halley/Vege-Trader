@@ -1,10 +1,11 @@
 
 import request from 'superagent'
-var traderUrl = 'http://localhost:3000/react'
+var traderUrl = 'http://localhost:3000/api'
 
 module.exports = {
   saveUser,
-  getUser
+  getVegetables,
+  getUsers
 }
 
 
@@ -21,14 +22,27 @@ function saveUser (user, callback) {
     })
 }
 
-function getUser (callback) {
+function getVegetables (callback) {
   request
-  .get(traderUrl)
+  .get(traderUrl + '/vegetables')
   .end(function (err, res) {
     if (err) {
       callback(err)
     } else {
       callback(null, res.body)
+    }
+  })
+}
+
+function getUsers (callback) {
+  request
+  .get(traderUrl + '/users')
+  .end(function (err, res) {
+    console.log(res.body);
+    if (err) {
+      callback(err)
+    } else {
+      callback(null, res.body || [])
     }
   })
 }

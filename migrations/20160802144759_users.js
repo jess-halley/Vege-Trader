@@ -3,9 +3,6 @@ exports.up = function (knex, Promise) {
     table.increments('id').primary()
     table.string('name')
     table.string('email')
-    table.string('vegetables')
-    table.string('quantity')
-    table.string('imgURL')
   })
 }
 
