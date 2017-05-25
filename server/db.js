@@ -3,7 +3,8 @@ module.exports = {
   getUser: getUser,
   getUsers: getUsers,
   addUser: addUser,
-  getVegetables
+  getVegetables,
+  addVeges
 }
 
 function getUsers (connection) {
@@ -20,8 +21,12 @@ function addUser (user, connection){
 }
 
 function getVegetables (connection){
-  console.log("double hit");
   return connection ('vegetables')
   .join('users','vegetables.user_id',"=","users.id")
   .select('*', 'vegetables.id as vege_id')
+}
+
+function addVeges (vegetables, connection){
+  return connection ('vegetables')
+  .insert(vegetables)
 }

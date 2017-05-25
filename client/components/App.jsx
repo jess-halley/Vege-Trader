@@ -1,12 +1,15 @@
 import React from 'react'
-import UserForm from './forms'
+import UserForm from './UserForm'
+import VegeForm from './VegeForm'
 const api = require('../api')
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      users: []
+      users: [],
+      user_id: null
+
     }
   }
 
@@ -25,11 +28,17 @@ class App extends React.Component {
       user.id = user_id
     })
   }
+  selectUser(user_id) {
+    console.log({user_id});
+    // let user = this.state.users.find((user) => user.id == user_id)
+    this.setState({user_id})
+  }
 
   render(){
     return (
       <div>
-        <UserForm saveUser={this.saveUser.bind(this)}/>
+        <UserForm selectUser={this.selectUser.bind(this)} saveUser={this.saveUser.bind(this)}/>
+        {this.state.user_id != null && <VegeForm userId={this.state.user_id}/> }
         {this.state.users.map((u, i) => <User user={u} key={i}/>)}
       </div>
     )
@@ -44,7 +53,6 @@ const User = ({user}) => {
     </div>
   )
 }
-
 
 
 export default App

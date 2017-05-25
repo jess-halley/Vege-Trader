@@ -5,7 +5,8 @@ var traderUrl = 'http://localhost:3000/api'
 module.exports = {
   saveUser,
   getVegetables,
-  getUsers
+  getUsers,
+  saveVege
 }
 
 
@@ -18,6 +19,19 @@ function saveUser (user, callback) {
         callback(err)
       } else {
         callback(null, res.body.user_id)
+      }
+    })
+}
+
+function saveVege (vege, callback) {
+  request
+    .post(traderUrl + '/vegetables')
+    .send(vege)
+    .end(function (err, res) {
+      if (err) {
+        callback(err)
+      } else {
+        callback(null)
       }
     })
 }
