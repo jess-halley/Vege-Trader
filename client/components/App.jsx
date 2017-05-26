@@ -49,6 +49,7 @@ const User = ({user}) => {
   return (
     <div className = 'user'>
       <h1>{user.name} : {user.email}</h1>
+      <h2>{user.vegetables}</h2>
       <img src={user.imgURL}/>
     </div>
   )

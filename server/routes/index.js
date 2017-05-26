@@ -7,11 +7,9 @@ router.get('/vegetables', function (req, res) {
   console.log("hit");
   db.getVegetables(req.app.get('connection'))
     .then(function (users) {
-      console.log({users});
       res.json(users)
     })
     .catch(function (err) {
-      console.log(err);
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
