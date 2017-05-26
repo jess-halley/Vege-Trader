@@ -1,6 +1,7 @@
 import React from 'react'
 import UserForm from './UserForm'
 import VegeForm from './VegeForm'
+import NewUserForm from './NewUserForm'
 const api = require('../api')
 
 class App extends React.Component {
@@ -38,7 +39,8 @@ class App extends React.Component {
     return (
       <div>
         <UserForm selectUser={this.selectUser.bind(this)} saveUser={this.saveUser.bind(this)}/>
-        {this.state.user_id != null && <VegeForm userId={this.state.user_id}/> }
+        {this.state.user_id != null && this.state.user_id != "New User?" && <VegeForm userId={this.state.user_id}/> }
+        {this.state.user_id == "New User?" && <NewUserForm/> }
         {this.state.users.map((u, i) => <User user={u} key={i}/>)}
       </div>
     )

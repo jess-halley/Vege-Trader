@@ -12,13 +12,13 @@ module.exports = {
 
 function saveUser (user, callback) {
   request
-    .post(traderUrl)
+    .post(traderUrl + '/user')
     .send(user)
     .end(function (err, res) {
       if (err) {
         callback(err)
       } else {
-        callback(null, res.body.user_id)
+        callback(null)
       }
     })
 }

@@ -19,7 +19,7 @@ export default class VegeForm extends React.Component {
     e.preventDefault()
     console.log(this.state);
     api.saveVege(this.state, (err) => {
-      if (!err) console.log("yay");
+      if (!err) console.log("veges saved to db");
     })
   }
   renderQuantities() {
@@ -28,7 +28,7 @@ export default class VegeForm extends React.Component {
       arr.push(<option value={i}>{i}</option>)
     }
     return <select name="quantity" onChange={(e) => this.handleChange(e)}>
-      <option selected disabled>Quanity</option>
+      <option selected disabled>Quantity</option>
       {arr}
     </select>
   }

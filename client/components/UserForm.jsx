@@ -27,12 +27,15 @@ export default class UserForm extends React.Component {
     return this.state.users.map((user) => {
       return <option value={user.id}>{user.name}</option>
     })
+
+
   }
   render(){
     return(
       <form onSubmit={(evt) => this.handleSubmit(evt)}>
         <select name="user_id" onChange={e => this.handleChange(e)}>
           <option selected disabled>Existing User</option> />
+          <option>New User?</option>
           {this.renderUserOptions()}
         </select>
       </form>
