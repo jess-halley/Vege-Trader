@@ -1,4 +1,6 @@
 import React from 'react'
+import NewUserForm from './NewUserForm'
+import VegeForm from'./VegeForm'
 const api = require('../api')
 
 export default class UserForm extends React.Component {
@@ -14,13 +16,13 @@ export default class UserForm extends React.Component {
     this.props.saveUser(this.state.user);
   }
   componentDidMount () {
+    console.log("Getting list of users");
     api.getUsers((err, users) => {
       this.setState({users})
     })
   }
   handleChange(evt){
     if (evt.target.name == 'user_id') this.props.selectUser(evt.target.value)
-
     this.setState({[evt.target.name]: evt.target.value})
   }
   renderUserOptions() {
@@ -35,7 +37,7 @@ export default class UserForm extends React.Component {
       <form onSubmit={(evt) => this.handleSubmit(evt)}>
         <select name="user_id" onChange={e => this.handleChange(e)}>
           <option selected disabled>Existing User</option> />
-          <option>New User?</option>
+          <option value="newUser">New User?</option>
           {this.renderUserOptions()}
         </select>
       </form>

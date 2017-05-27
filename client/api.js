@@ -1,6 +1,6 @@
 
 import request from 'superagent'
-var traderUrl = 'https://vegetrader.herokuapp.com/api'
+var traderUrl = 'http://localhost:3000/api'
 
 module.exports = {
   saveUser,
@@ -52,7 +52,6 @@ function getUsers (callback) {
   request
   .get(traderUrl + '/users')
   .end(function (err, res) {
-    console.log(res.body);
     if (err) {
       callback(err)
     } else {

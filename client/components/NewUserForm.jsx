@@ -5,6 +5,7 @@ const api = require('../api')
 export default class NewUserForm extends React.Component {
   constructor(props){
     super(props)
+    console.log("Constructing New User form")
     this.state = {
       name: '',
       email: ''
@@ -21,6 +22,7 @@ export default class NewUserForm extends React.Component {
     api.saveUser(this.state, (err) => {
       if (!err) console.log("user saved to db");
     })
+    this.props.updateUserList();
   }
 
   render(){
