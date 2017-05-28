@@ -1,7 +1,10 @@
 import React from 'react'
+import NewUserForm from './NewUserForm';
 import UserForm from './UserForm'
 import VegeForm from './VegeForm'
 const api = require('../api')
+
+const newUser = "newUser";
 
 class App extends React.Component {
   constructor(props){
@@ -34,12 +37,25 @@ class App extends React.Component {
     this.setState({user_id})
   }
 
+  isUserSelected() {
+    const { user_id } = this.state;
+
+    return user_id !== null || user_id !== newUser;
+  }
+
+  isNewUser() {
+    const { user_id } = this.state;
+
+    return user_id === newUser;
+  }
+
   render(){
     return (
       <div>
         <UserForm selectUser={this.selectUser.bind(this)} saveUser={this.saveUser.bind(this)}/>
-        {this.state.user_id != null && this.state.user_id != "newUser" && <VegeForm userId={this.state.user_id}/> }
-        {this.state.users.map((u, i) => <User user={u} key={i}/>)}
+        { this.isNewUser() && <NewUserForm updateUserList={() => this.refreshList()} /> }
+        { this.isUserSelected() && <VegeForm userId={this.state.user_id}/> }
+        { this.state.users.map((u, i) => <User user={u} key={i}/>) }
       </div>
     )
   }
