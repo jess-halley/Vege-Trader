@@ -9899,7 +9899,7 @@ var App = (function (_React$Component) {
 
       return _react2['default'].createElement(
         'div',
-        null,
+        { className: 'row main' },
         _react2['default'].createElement(_UserForm2['default'], { selectUser: this.selectUser.bind(this), saveUser: this.saveUser.bind(this) }),
         this.isNewUser() && _react2['default'].createElement(_NewUserForm2['default'], { updateUserList: function () {
             return _this2.refreshList();
@@ -9920,20 +9920,35 @@ var User = function User(_ref) {
 
   return _react2['default'].createElement(
     'div',
-    { className: 'user' },
+    { className: 'twelve columns listing user' },
     _react2['default'].createElement(
-      'h1',
-      null,
-      user.name,
-      ' : ',
-      user.email
+      'div',
+      { className: 'six columns listing' },
+      _react2['default'].createElement(
+        'h4',
+        null,
+        user.name,
+        ' :'
+      ),
+      _react2['default'].createElement(
+        'h5',
+        null,
+        user.vegetables,
+        ' : ',
+        user.quantity
+      ),
+      _react2['default'].createElement(
+        'p',
+        { className: 'emailAddress' },
+        user.email
+      ),
+      _react2['default'].createElement('hr', null)
     ),
     _react2['default'].createElement(
-      'h2',
-      null,
-      user.vegetables
-    ),
-    _react2['default'].createElement('img', { src: user.imgURL })
+      'div',
+      { className: 'five columns listing' },
+      _react2['default'].createElement('img', { src: user.imgURL })
+    )
   );
 };
 
@@ -10065,7 +10080,7 @@ var UserForm = (function (_React$Component) {
             } },
           _react2['default'].createElement(
             'option',
-            { selected: true, disabled: true },
+            { selected: true, disabled: true, value: 'existingUser' },
             'Existing User'
           ),
           ' />',

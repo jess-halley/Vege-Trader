@@ -1,0 +1,191 @@
+body {
+  background-image: url('/styles/images/Stolen.jpg');
+  background-size: cover;
+  background-color: #000000;
+  background-attachment: fixed;
+  background-position: center;
+  font-size: 16px;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 2em;
+}
+
+.header {
+  margin-bottom: 2em;
+}
+
+h1 {
+	color: #ffffff;
+	font-family: 'Open Sans';
+	font-size: 94px;
+	font-weight: 800;
+	letter-spacing: -2px;
+	line-height: 84px;
+	margin-bottom: .1em;
+	text-transform: uppercase;
+  text-align: center;
+}
+
+h3, h4 {
+  font-family: 'Open Sans'
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+p {
+	color: #ffffff;
+	font-family: 'Crimson Text';
+	font-size: 34px;
+	font-weight: 500;
+	line-height: 48px;
+	margin-bottom: 48px;
+	max-width: 650px;
+}
+
+a {
+	color: #ffffff;
+}
+
+a:hover {
+
+}
+
+img {
+  object-fit: cover;
+  width: 150px;
+  height: 100px;
+  border-style: inset;
+  /*background: #fff;*/
+}
+
+button {
+  color: #ffffff;
+  width: 100%;
+  padding: 0;
+  border-color: #ffffff;
+}
+
+.description {
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+.emailAddress {
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+
+
+.footer p {
+  color: #ffffff;
+  font-family: 'Crimson Text';
+  font-size: 14px;
+  float: right;
+}
+
+.footer .right {
+  float: right;
+}
+
+.footer .left p {
+  float: left;
+}
+
+.left a {
+  text-decoration: none;
+}
+
+/*css-tricks.com long word wrap fix*/
+.dont-break-out {
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+  button {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 64px;
+    line-height: 64px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+  button {
+    font-size: 9px;
+  }
+
+  .listing:nth-child(5), .listing:nth-child(9) {
+    margin-left: 0;
+  }
+
+  .dont-see {
+    text-align: right;
+    margin-top: -.4em
+  }
+
+}
+
+.rotate {
+  transform: rotate(90deg);
+  margin-top: 100px;
+  width: 300px;
+}
+
+.rotate img {
+  height: 200px;
+}
+
+.sub-h {
+  font-size: 1.6em;
+  line-height: 3vh;
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+  button {
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: 94px;
+    line-height: 84px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

@@ -36,7 +36,7 @@ export default class UserForm extends React.Component {
     return(
       <form onSubmit={(evt) => this.handleSubmit(evt)}>
         <select name="user_id" onChange={e => this.handleChange(e)}>
-          <option selected disabled>Existing User</option> />
+          <option selected disabled value="existingUser">Existing User</option> />
           <option value="newUser">New User?</option>
           {this.renderUserOptions()}
         </select>

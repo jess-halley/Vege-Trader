@@ -51,7 +51,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="row main">
         <UserForm selectUser={this.selectUser.bind(this)} saveUser={this.saveUser.bind(this)}/>
         { this.isNewUser() && <NewUserForm updateUserList={() => this.refreshList()} /> }
         { this.isUserSelected() && <VegeForm userId={this.state.user_id}/> }
@@ -63,10 +63,16 @@ class App extends React.Component {
 
 const User = ({user}) => {
   return (
-    <div className = 'user'>
-      <h1>{user.name} : {user.email}</h1>
-      <h2>{user.vegetables}</h2>
-      <img src={user.imgURL}/>
+    <div className="twelve columns listing user">
+      <div className="six columns listing">
+        <h4>{user.name} :</h4>
+        <h5>{user.vegetables} : {user.quantity}</h5>
+        <p className="emailAddress">{user.email}</p>
+        <hr />
+      </div>
+      <div className="five columns listing">
+        <img src={user.imgURL}/>
+      </div>
     </div>
   )
 }
