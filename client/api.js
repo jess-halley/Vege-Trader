@@ -1,6 +1,6 @@
 
 import request from 'superagent'
-var traderUrl = 'http://localhost:3000/api'
+var traderUrl = '/api'
 
 module.exports = {
   saveUser,
