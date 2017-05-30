@@ -22,7 +22,7 @@ function addUser (user, connection){
 
 function getVegetables (connection){
   return connection ('vegetables')
-  .join('users','vegetables.user_id',"=","users.id")
+  .join('users','vegetables.user_id', "users.id")
   .select('*', 'vegetables.id as vege_id')
 }
 
