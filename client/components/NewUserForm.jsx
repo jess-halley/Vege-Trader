@@ -30,7 +30,7 @@ export default class NewUserForm extends React.Component {
       <form onSubmit={(e) => this.handleSubmit(e)}>
         <input type="text" placeholder="name" name="name" onChange={(e) => this.handleChange(e)}/>
         <input type="email" placeholder="email" name="email" onChange={(e) => this.handleChange(e)}/>
-        <input type="submit" value="submit"/>
+        <input href="#" type="submit" value="submit"/>
       </form>
 
     )

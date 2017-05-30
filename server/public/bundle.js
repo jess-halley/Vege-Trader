@@ -6831,7 +6831,7 @@ var NewUserForm = (function (_React$Component) {
         _react2['default'].createElement('input', { type: 'email', placeholder: 'email', name: 'email', onChange: function (e) {
             return _this.handleChange(e);
           } }),
-        _react2['default'].createElement('input', { type: 'submit', value: 'submit' })
+        _react2['default'].createElement('input', { href: '#', type: 'submit', value: 'submit' })
       );
     }
   }]);
