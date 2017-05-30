@@ -2,9 +2,9 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('vegetables', function (table) {
     table.increments('id').primary()
-    table.string('user_id')
+    table.integer('user_id')
     table.string('vegetables')
-    table.string('quantity')
+    table.integer('quantity')
     table.string('imgURL')
   })
 }
