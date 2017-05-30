@@ -31,6 +31,8 @@ function saveVege (vege, callback) {
       if (err) {
         callback(err)
       } else {
+        console.log(vege.vegetables + " saved to db");
+        console.log(res.id);
         callback(null)
       }
     })

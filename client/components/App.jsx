@@ -35,12 +35,19 @@ class App extends React.Component {
     console.log({user_id});
     // let user = this.state.users.find((user) => user.id == user_id)
     this.setState({user_id})
+    console.log("App user Id = " + this.state.user_id)
   }
 
   isUserSelected() {
     const { user_id } = this.state;
 
-    return user_id !== null || user_id !== newUser;
+    return user_id !== null && user_id !== newUser;
+  }
+
+  getSelectedUser() {
+    const { user_id } = this.state;
+    console.log("Selected user is" + user_id)
+    return user_id;
   }
 
   isNewUser() {
@@ -54,7 +61,7 @@ class App extends React.Component {
       <div className="row main">
         <UserForm selectUser={this.selectUser.bind(this)} saveUser={this.saveUser.bind(this)}/>
         { this.isNewUser() && <NewUserForm updateUserList={() => this.refreshList()} /> }
-        { this.isUserSelected() && <VegeForm userId={this.state.user_id}/> }
+        { this.isUserSelected() && <VegeForm userId={() => this.getSelectedUser()}/> }
         { this.state.users.map((u, i) => <User user={u} key={i}/>) }
       </div>
     )

@@ -23,7 +23,7 @@ export default class UserForm extends React.Component {
   }
   handleChange(evt){
     if (evt.target.name == 'user_id') this.props.selectUser(evt.target.value)
-    this.setState({[evt.target.name]: evt.target.value})
+    this.setState({[evt.target.name]: evt.target.value});
   }
   renderUserOptions() {
     return this.state.users.map((user) => {
@@ -35,7 +35,7 @@ export default class UserForm extends React.Component {
   render(){
     return(
       <form onSubmit={(evt) => this.handleSubmit(evt)}>
-        <select name="user_id" onChange={e => this.handleChange(e)}>
+        <select name="user_id" onChange={e => this.handleChange(e)} onClick={e => this.componentDidMount(e)}>
           <option selected disabled value="existingUser">Existing User</option> />
           <option value="newUser">New User?</option>
           {this.renderUserOptions()}

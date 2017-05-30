@@ -3501,6 +3501,8 @@ function saveVege(vege, callback) {
     if (err) {
       callback(err);
     } else {
+      console.log(vege.vegetables + " saved to db");
+      console.log(res.id);
       callback(null);
     }
   });
@@ -6885,7 +6887,7 @@ var VegeForm = (function (_React$Component) {
       vegetables: '',
       quantity: 1,
       imgURL: '',
-      user_id: this.props.userId
+      user_id: this.props.userId()
     };
   }
 
@@ -6893,12 +6895,14 @@ var VegeForm = (function (_React$Component) {
     key: 'handleChange',
     value: function handleChange(e) {
       this.setState(_defineProperty({}, e.target.name, e.target.value));
+      this.setState({ user_id: this.props.userId() });
+      console.log("VegeForm user Id = " + this.state.user_id);
     }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
-      console.log(this.state);
+      this.setState({ user_id: this.props.userId() });
       api.saveVege(this.state, function (err) {
         if (!err) console.log("veges saved to db");
       });
@@ -9877,13 +9881,22 @@ var App = (function (_React$Component) {
       console.log({ user_id: user_id });
       // let user = this.state.users.find((user) => user.id == user_id)
       this.setState({ user_id: user_id });
+      console.log("App user Id = " + this.state.user_id);
     }
   }, {
     key: 'isUserSelected',
     value: function isUserSelected() {
       var user_id = this.state.user_id;
 
-      return user_id !== null || user_id !== newUser;
+      return user_id !== null && user_id !== newUser;
+    }
+  }, {
+    key: 'getSelectedUser',
+    value: function getSelectedUser() {
+      var user_id = this.state.user_id;
+
+      console.log("Selected user is" + user_id);
+      return user_id;
     }
   }, {
     key: 'isNewUser',
@@ -9904,7 +9917,9 @@ var App = (function (_React$Component) {
         this.isNewUser() && _react2['default'].createElement(_NewUserForm2['default'], { updateUserList: function () {
             return _this2.refreshList();
           } }),
-        this.isUserSelected() && _react2['default'].createElement(_VegeForm2['default'], { userId: this.state.user_id }),
+        this.isUserSelected() && _react2['default'].createElement(_VegeForm2['default'], { userId: function () {
+            return _this2.getSelectedUser();
+          } }),
         this.state.users.map(function (u, i) {
           return _react2['default'].createElement(User, { user: u, key: i });
         })
@@ -10077,6 +10092,8 @@ var UserForm = (function (_React$Component) {
           'select',
           { name: 'user_id', onChange: function (e) {
               return _this2.handleChange(e);
+            }, onClick: function (e) {
+              return _this2.componentDidMount(e);
             } },
           _react2['default'].createElement(
             'option',

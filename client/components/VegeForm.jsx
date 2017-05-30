@@ -8,16 +8,18 @@ export default class VegeForm extends React.Component {
       vegetables: '',
       quantity: 1,
       imgURL: '',
-      user_id: this.props.userId
+      user_id: this.props.userId()
     }
   }
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value})
+    this.setState({user_id: this.props.userId()})
+    console.log("VegeForm user Id = " + this.state.user_id)
   }
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state);
+    this.setState({user_id: this.props.userId()})
     api.saveVege(this.state, (err) => {
       if (!err) console.log("veges saved to db");
     })
