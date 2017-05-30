@@ -26,6 +26,7 @@ export default class UserForm extends React.Component {
     this.setState({[evt.target.name]: evt.target.value})
   }
   renderUserOptions() {
+    console.log(this.state.users);
     return this.state.users.map((user) => {
       return <option value={user.id}>{user.name}</option>
     })

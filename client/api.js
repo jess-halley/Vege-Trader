@@ -52,10 +52,11 @@ function getUsers (callback) {
   request
   .get(traderUrl + '/users')
   .end(function (err, res) {
+    console.log({err, res: res.body});
     if (err) {
       callback(err)
     } else {
-      callback(null, res.body || [])
+      callback(null, res.body)
     }
   })
 }
