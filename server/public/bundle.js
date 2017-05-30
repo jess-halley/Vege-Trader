@@ -3517,8 +3517,8 @@ function getVegetables(callback) {
 }
 
 function getUsers(callback) {
+  console.log("getting all users");
   _superagent2['default'].get(traderUrl + '/users').end(function (err, res) {
-    console.log({ err: err, res: res.body });
     if (err) {
       callback(err);
     } else {
@@ -9846,8 +9846,8 @@ var App = (function (_React$Component) {
     _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
     this.state = {
       users: [],
-      user_id: null
-
+      user_id: null,
+      vegetables: []
     };
   }
 
@@ -9861,16 +9861,20 @@ var App = (function (_React$Component) {
     value: function refreshList() {
       var _this = this;
 
-      api.getVegetables(function (err, users) {
+      console.log("refreshing");
+      api.getUsers(function (err, users) {
+        console.log("refreshed");
         _this.setState({ users: users });
+      });
+      api.getVegetables(function (err, vegetables) {
+        _this.setState({ vegetables: vegetables });
       });
     }
   }, {
     key: 'saveUser',
     value: function saveUser(user) {
-      api.saveUser(user, function (user_id) {
-        user.id = user_id;
-      });
+      console.log("calling api function");
+      api.saveUser(user, refreshList);
     }
   }, {
     key: 'selectUser',
@@ -9906,7 +9910,7 @@ var App = (function (_React$Component) {
             return _this2.refreshList();
           } }),
         this.isUserSelected() && _react2['default'].createElement(_VegeForm2['default'], { userId: this.state.user_id }),
-        this.state.users.map(function (u, i) {
+        this.state.vegetables.map(function (u, i) {
           return _react2['default'].createElement(User, { user: u, key: i });
         })
       );

@@ -11,8 +11,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       users: [],
-      user_id: null
-
+      user_id: null,
+      vegetables: []
     }
   }
 
@@ -21,15 +21,19 @@ class App extends React.Component {
   }
 
   refreshList () {
-    api.getVegetables((err, users) => {
+    console.log("refreshing");
+    api.getUsers((err, users) => {
+      console.log("refreshed");
       this.setState({users})
+    })
+    api.getVegetables((err, vegetables) => {
+      this.setState({vegetables})
     })
   }
 
   saveUser(user){
-    api.saveUser(user, (user_id) => {
-      user.id = user_id
-    })
+    console.log("calling api function");
+    api.saveUser(user, refreshList)
   }
   selectUser(user_id) {
     console.log({user_id});
@@ -55,7 +59,7 @@ class App extends React.Component {
         <UserForm selectUser={this.selectUser.bind(this)} saveUser={this.saveUser.bind(this)}/>
         { this.isNewUser() && <NewUserForm updateUserList={() => this.refreshList()} /> }
         { this.isUserSelected() && <VegeForm userId={this.state.user_id}/> }
-        { this.state.users.map((u, i) => <User user={u} key={i}/>) }
+        { this.state.vegetables.map((u, i) => <User user={u} key={i}/>) }
       </div>
     )
   }

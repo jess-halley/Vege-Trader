@@ -49,10 +49,10 @@ function getVegetables (callback) {
 }
 
 function getUsers (callback) {
+  console.log("getting all users");
   request
   .get(traderUrl + '/users')
   .end(function (err, res) {
-    console.log({err, res: res.body});
     if (err) {
       callback(err)
     } else {

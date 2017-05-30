@@ -6,8 +6,8 @@ var db = require('../db')
 router.get('/vegetables', function (req, res) {
   console.log("hit");
   db.getVegetables(req.app.get('connection'))
-    .then(function (users) {
-      res.json(users)
+    .then(function (veges) {
+      res.json(veges)
     })
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -37,7 +37,7 @@ router.post('/user', (req, res) => {
 router.post('/vegetables', (req, res) => {
   db.addVeges(req.body, req.app.get ('connection'))
   .then(function (response) {
-    res.status(201).send({user_id: response[0]})
+    res.status(201).send({vege_id: response[0]})
   })
   .catch(function (err){
     res.status(500).send('DATABASE ERROR: ' + err.message)
