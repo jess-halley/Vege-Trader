@@ -40,6 +40,7 @@ function getVegetables (callback) {
   request
   .get(traderUrl + '/vegetables')
   .end(function (err, res) {
+    console.log({err, res: res.body});
     if (err) {
       callback(err)
     } else {

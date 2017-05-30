@@ -3508,6 +3508,7 @@ function saveVege(vege, callback) {
 
 function getVegetables(callback) {
   _superagent2['default'].get(traderUrl + '/vegetables').end(function (err, res) {
+    console.log({ err: err, res: res.body });
     if (err) {
       callback(err);
     } else {
@@ -9867,6 +9868,7 @@ var App = (function (_React$Component) {
         _this.setState({ users: users });
       });
       api.getVegetables(function (err, vegetables) {
+        console.log({ vegetables: vegetables });
         _this.setState({ vegetables: vegetables });
       });
     }

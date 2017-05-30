@@ -27,6 +27,7 @@ class App extends React.Component {
       this.setState({users})
     })
     api.getVegetables((err, vegetables) => {
+      console.log({vegetables});
       this.setState({vegetables})
     })
   }
