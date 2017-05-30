@@ -8,7 +8,7 @@ export default class VegeForm extends React.Component {
       vegetables: '',
       quantity: 1,
       imgURL: '',
-      user_id: this.props.userId
+      user_id: 99901
     }
   }
 

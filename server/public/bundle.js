@@ -3498,6 +3498,7 @@ function saveUser(user, callback) {
 
 function saveVege(vege, callback) {
   _superagent2['default'].post(traderUrl + '/vegetables').send(vege).end(function (err, res) {
+    console.log({ err: err, res: res });
     if (err) {
       callback(err);
     } else {
@@ -6887,7 +6888,7 @@ var VegeForm = (function (_React$Component) {
       vegetables: '',
       quantity: 1,
       imgURL: '',
-      user_id: this.props.userId
+      user_id: 99901
     };
   }
 

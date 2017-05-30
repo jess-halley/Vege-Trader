@@ -28,6 +28,7 @@ function saveVege (vege, callback) {
     .post(traderUrl + '/vegetables')
     .send(vege)
     .end(function (err, res) {
+      console.log({err, res});
       if (err) {
         callback(err)
       } else {
