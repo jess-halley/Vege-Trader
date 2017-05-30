@@ -18,6 +18,7 @@ export default class UserForm extends React.Component {
   componentDidMount () {
     console.log("Getting list of users");
     api.getUsers((err, users) => {
+      console.log({users});
       this.setState({users})
     })
   }

@@ -3477,7 +3477,7 @@ var _superagent = __webpack_require__(189);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var traderUrl = 'http://localhost:3000/api';
+var traderUrl = '/api';
 
 module.exports = {
   saveUser: saveUser,
@@ -3518,10 +3518,11 @@ function getVegetables(callback) {
 
 function getUsers(callback) {
   _superagent2['default'].get(traderUrl + '/users').end(function (err, res) {
+    console.log({ err: err, res: res.body });
     if (err) {
       callback(err);
     } else {
-      callback(null, res.body || []);
+      callback(null, res.body);
     }
   });
 }
@@ -10043,6 +10044,7 @@ var UserForm = (function (_React$Component) {
 
       console.log("Getting list of users");
       api.getUsers(function (err, users) {
+        console.log({ users: users });
         _this.setState({ users: users });
       });
     }
@@ -10055,6 +10057,7 @@ var UserForm = (function (_React$Component) {
   }, {
     key: 'renderUserOptions',
     value: function renderUserOptions() {
+      console.log(this.state.users);
       return this.state.users.map(function (user) {
         return _react2['default'].createElement(
           'option',
