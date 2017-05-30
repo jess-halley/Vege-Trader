@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function getUsers (connection) {
-  return connection('users').select()
+  return connection('users').select('*')
 }
 
 function getUser (id, connection) {
@@ -23,7 +23,6 @@ function addUser (user, connection){
 function getVegetables (connection){
   return connection ('vegetables')
   .join('users','vegetables.user_id', "users.id")
-  .select('*', 'vegetables.id as vege_id')
 }
 
 function addVeges (vegetables, connection){
