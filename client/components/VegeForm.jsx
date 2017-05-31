@@ -15,6 +15,10 @@ export default class VegeForm extends React.Component {
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value})
     this.setState({user_id: this.props.userId()})
+    // this.setState({
+    //   user_id: this.props.userId(),
+    //   [e.target.name]: e.target.value
+    // })
     console.log("VegeForm user Id = " + this.state.user_id)
   }
   handleSubmit(e) {
